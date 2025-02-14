@@ -1,37 +1,34 @@
-<form action="action_page.php">
-  <div class="container">
-    <h1>New user Register for DevOps Learning</h1>
-    <p>Please fill in this form to create an account</p>
-    <hr>
-     
-    <label for="Name"><b>Enter Name</b></label>
-    <input type="text" placeholder="Enter Full Name" name="Name" id="Name" required>
-    <br>
-    
-    <label for="mobile"><b>Enter mobile</b></label>
-    <input type="text" placeholder="Enter moible number" name="mobile" id="mobile" required>
-    <br>
-
-    <label for="email"><b>Enter Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" id="email" required>
-    <br>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
-    <br>
-
-    <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
-    <hr>
-    <br>
-    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-    <button type="submit" class="registerbtn">Register</button>
-  </div>
-  <div class="container signin">
-    <p>Already have an account? <a href="#">Sign in</a>.</p>
-  </div>
-
-   <h1> Thankyou, Happy Learning </h1>
-
-  
-</form>
+<form className="login-in-form" onSubmit={checkCredentialsBeforeToSendToDB}>
+                        <img src={process.env.PUBLIC_URL + '/Images/Hughes_Network_Systems_Logo-2048x523.png'} alt='hughes' className='hughes-logo' />
+                        <h1>EBRM</h1>
+                        {Object.keys(credentialsError).length !== 0 && <h4 className='error-msg'>{credentialsError.msg}</h4>}
+                        {/* <h3> Expense Management Software</h3> */}
+                        <label htmlFor='username' className='label-text'>User Name<span className='mandatory'> *</span></label>
+                        <div className='input-with-icon'>
+                            <FiUser className='icon' />
+                            <input
+                                id='username'
+                                type='text'
+                                className='login-input-text-field'
+                                placeholder='User Name'
+                                name='username'
+                                value={credentials.username}
+                                onChange={(e) => onHandleChangeCredentials(e)}
+                            />
+                        </div>
+                        <label htmlFor='password' className='label-text'>Password<span className='mandatory'> *</span></label>
+                        <div className='input-with-icon'>
+                            <RiLockPasswordLine className='icon' />
+                            <input
+                                id='password'
+                                type='password'
+                                className='login-input-text-field'
+                                placeholder='Password'
+                                name='password'
+                                value={credentials.password}
+                                onChange={(e) => onHandleChangeCredentials(e)}
+                            />
+                        </div>
+                        <h5 className='forgetPass' onClick={() => navigate('/Hughesnetwork/Management/login/ForgetPassword')}>Forgot Password?</h5>
+                        <Button type='submit' className='main-primary-button' text={isLoading ? 'Loading' : 'Log In'} />
+                    </form>
