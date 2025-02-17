@@ -20,7 +20,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 300px;
             border-radius: 5px;
-            height:390px;
+            height:380px;
         }
         .login-container h2 {
             text-align: center;
