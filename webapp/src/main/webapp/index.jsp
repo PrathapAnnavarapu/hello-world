@@ -41,14 +41,14 @@
             width: 100%; 
             margin:10px, 0;
             padding: 10px;
-            background-color: #4CAF50;
+            background-color: #FF0000;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
         .login-container button:hover {
-            background-color: #FF0000;
+            background-color: #4CAF50;;
         }
     </style>
 </head>
